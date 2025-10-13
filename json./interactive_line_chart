@@ -1,0 +1,86 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Australian Energy Consumption by Source",
+    "fontSize": 24,
+    "fontWeight": "bold",
+    "anchor": "middle"
+  },
+  "vconcat": [
+    {
+      "width": 800,
+      "height": 380,
+      "data": {
+        "url": "https://raw.githubusercontent.com/ananya21233/FIT3179_Assignment_2/main/data/energy_consumption_by_source.csv"
+      },
+      "transform": [
+        {
+          "fold": [
+            "Solar consumption - TWh",
+            "Wind consumption - TWh",
+            "Coal consumption - TWh",
+            "Gas consumption - TWh",
+            "Oil consumption - TWh"
+          ],
+          "as": ["Source", "TWh"]
+        },
+        {"filter": {"param": "yearBrush"}}
+      ],
+      "selection": {
+        "source_highlight": {
+          "type": "multi",
+          "fields": ["Source"],
+          "bind": "legend"
+        }
+      },
+      "mark": "line",
+      "encoding": {
+        "x": {"field": "Year", "type": "temporal", "title": "Year"},
+        "y": {"field": "TWh", "type": "quantitative", "title": "Energy Consumption (TWh)"},
+        "color": {
+          "field": "Source",
+          "type": "nominal",
+          "title": "Sources of Energy",
+          "legend": {"symbolType": "circle", "symbolSize": 140,  "titleFontSize": 14, "labelFontSize": 12}
+        },
+        "opacity": {"condition": {"selection": "source_highlight", "value": 1}, "value": 0.15},
+        "tooltip": [
+          {"field": "Year", "type": "temporal"},
+          {"field": "Source", "type": "nominal"},
+          {"field": "TWh", "type": "quantitative", "format": ".2f"}
+        ]
+      }
+    },
+    {
+      "width": 800,
+      "height": 70,
+      "title": "Year Range Filter",
+      "data": {
+        "url": "https://raw.githubusercontent.com/ananya21233/FIT3179_Assignment_2/main/data/energy_consumption_by_source.csv"
+      },
+      "transform": [
+        {
+          "fold": [
+            "Solar consumption - TWh",
+            "Wind consumption - TWh",
+            "Coal consumption - TWh",
+            "Gas consumption - TWh",
+            "Oil consumption - TWh"
+          ],
+          "as": ["Source", "TWh"]
+        }
+      ],
+      "params": [
+        {"name": "yearBrush", "select": {"type": "interval", "encodings": ["x"]}}
+      ],
+      "mark": "line",
+      "encoding": {
+        "x": {"field": "Year", "type": "temporal", "title": "Year"},
+        "y": {
+          "aggregate": "sum",
+          "field": "TWh",
+        }
+      }
+    }
+  ]
+}
