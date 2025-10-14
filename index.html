@@ -44,10 +44,11 @@
   </footer>
 
   <script>
-    // Load the Vega-Lite spec from your repo
-    vegaEmbed('#vis', 'json/interactive_line_chart.json', { actions: false })
-      .then(() => console.log('Chart loaded'))
-      .catch(err => console.error(err));
+  vegaEmbed(
+    '#vis',
+    'https://raw.githubusercontent.com/ananya21233/FIT3179_Assignment_2/main/json/interactive_line_chart.json',
+    { actions: false }
+  ).catch(console.error);
   </script>
 </body>
 </html>
