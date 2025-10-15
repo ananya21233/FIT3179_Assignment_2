@@ -14,7 +14,6 @@
         "url": "https://raw.githubusercontent.com/ananya21233/FIT3179_Assignment_2/main/data/energy_consumption_by_source.csv"
       },
       "transform": [
-        { "filter": "datum.Entity === 'Australia'" },
         {
           "fold": [
             "Solar consumption - TWh",
@@ -82,7 +81,9 @@
         "x": { "field": "Year", "type": "temporal", "title": "Year" },
         "y": {
           "aggregate": "sum",
-          "field": "TWh"
+          "field": "TWh",
+          "title": "",
+          "axis": { "grid": false, "labels": false, "ticks": false }
         }
       }
     }
