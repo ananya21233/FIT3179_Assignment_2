@@ -14,6 +14,7 @@
         "url": "https://raw.githubusercontent.com/ananya21233/FIT3179_Assignment_2/main/data/energy_consumption_by_source.csv"
       },
       "transform": [
+        { "filter": "datum.Entity === 'Australia'" },
         {
           "fold": [
             "Solar consumption - TWh",
@@ -24,30 +25,33 @@
           ],
           "as": ["Source", "TWh"]
         },
-        {"filter": {"param": "yearBrush"}}
+        { "filter": { "param": "yearBrush" } }
       ],
-      "selection": {
-        "source_highlight": {
-          "type": "multi",
-          "fields": ["Source"],
+      "params": [
+        {
+          "name": "source_highlight",
+          "select": { "type": "point", "fields": ["Source"] },
           "bind": "legend"
         }
-      },
+      ],
       "mark": "line",
       "encoding": {
-        "x": {"field": "Year", "type": "temporal", "title": "Year"},
-        "y": {"field": "TWh", "type": "quantitative", "title": "Energy Consumption (TWh)"},
+        "x": { "field": "Year", "type": "temporal", "title": "Year" },
+        "y": { "field": "TWh", "type": "quantitative", "title": "Energy Consumption (TWh)" },
         "color": {
           "field": "Source",
           "type": "nominal",
           "title": "Sources of Energy",
-          "legend": {"symbolType": "circle", "symbolSize": 140,  "titleFontSize": 14, "labelFontSize": 12}
+          "legend": { "symbolType": "circle", "symbolSize": 140, "titleFontSize": 14, "labelFontSize": 12 }
         },
-        "opacity": {"condition": {"selection": "source_highlight", "value": 1}, "value": 0.15},
+        "opacity": {
+          "condition": { "param": "source_highlight", "value": 1 },
+          "value": 0.15
+        },
         "tooltip": [
-          {"field": "Year", "type": "temporal"},
-          {"field": "Source", "type": "nominal"},
-          {"field": "TWh", "type": "quantitative", "format": ".2f"}
+          { "field": "Year", "type": "temporal" },
+          { "field": "Source", "type": "nominal" },
+          { "field": "TWh", "type": "quantitative", "format": ".2f" }
         ]
       }
     },
@@ -71,14 +75,14 @@
         }
       ],
       "params": [
-        {"name": "yearBrush", "select": {"type": "interval", "encodings": ["x"]}}
+        { "name": "yearBrush", "select": { "type": "interval", "encodings": ["x"] } }
       ],
       "mark": "line",
       "encoding": {
-        "x": {"field": "Year", "type": "temporal", "title": "Year"},
+        "x": { "field": "Year", "type": "temporal", "title": "Year" },
         "y": {
           "aggregate": "sum",
-          "field": "TWh",
+          "field": "TWh"
         }
       }
     }
