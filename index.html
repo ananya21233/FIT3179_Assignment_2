@@ -10,6 +10,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
+  <!-- External CSS -->
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
@@ -23,7 +24,7 @@
   <main>
     <section class="card">
       <div id="linechart"></div>
-    </div>
+    </section>
   </main>
 
   <footer>
@@ -35,6 +36,7 @@
 
     vegaEmbed("#linechart", spec1, { actions: false })
       .then(function(result) {
+        console.log("Chart loaded successfully");
       })
       .catch(console.error);
   </script>
