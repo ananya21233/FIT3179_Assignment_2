@@ -7,6 +7,7 @@ html,body{
 
 header,main,footer{
   max-width:var(--maxw);
+  text-align:center;
   margin:0 auto;
   padding:0 20px;
 }
@@ -29,7 +30,7 @@ header,main,footer{
 
 /* Color separator */
 .sep{height:6px;border-radius:999px;margin:14px auto 24px;width:min(200px,36%);}
-.sep--blue{background:linear-gradient(90deg,#3b82f6,#06b6d4);}
+.sep--blue{background:linear-gradient(90deg,#3b82f6,#3b82f6);}
 
 /* Content card */
 .card{
