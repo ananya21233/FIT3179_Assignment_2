@@ -35,13 +35,13 @@
     <p>Data: Our World in Data. Built with Vega-Lite.</p>
   </footer>
 
-  <script>
-    // Using RAW URL so the unusual folder name "json." (with dot) is handled reliably
-    vegaEmbed(
-      '#vis',
-      'https://raw.githubusercontent.com/ananya21233/FIT3179_Assignment_2/main/json./interactive_line_chart.json',
-      { actions: false }
-    ).catch(console.error);
+  <script type="text/javascript">
+    var spec = "json./interactive_line_chart.json";
+
+    vegaEmbed("#linechart", spec, { actions: false })
+      .then(function(result) {
+      })
+      .catch(console.error);
   </script>
 </body>
 </html>
