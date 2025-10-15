@@ -23,11 +23,12 @@
   <header>
     <h1>Australian Energy Consumption by Source</h1>
     <p>Interactive line chart with legend multi-select and a year brush.</p>
+    <div class="sep sep--blue"></div>
   </header>
 
   <main>
-    <div class="card">
-      <div id="vis"></div>
+    <section class="card">
+      <div id="linechart"></div>
     </div>
   </main>
 
@@ -36,9 +37,9 @@
   </footer>
 
   <script type="text/javascript">
-    var spec = "json./interactive_line_chart.json";
+    var spec1 = "json./interactive_line_chart.json";
 
-    vegaEmbed("#linechart", spec, { actions: false })
+    vegaEmbed("#linechart", spec1, { actions: false })
       .then(function(result) {
       })
       .catch(console.error);
