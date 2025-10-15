@@ -4,6 +4,7 @@ html,body{
   color:var(--ink);
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
+body { background:#ffeee6 !important; }
 
 header,main,footer{
   max-width:var(--maxw);
