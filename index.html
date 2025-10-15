@@ -1,46 +1,52 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FIT3179 Assignment 2 — Interactive Line Chart</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FIT3179 Assignment 2 — Interactive Line Chart</title>
 
-  <!-- Vega libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <!-- Vega libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-  <!-- External CSS -->
-  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
-</head>
+    <!-- External CSS -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all"/>
+  </head>
 
-<body>
-  <div class="homepage">
+  <head>
+    <title>Australian Energy Consumption by Source</title>
+    <style>
+      h1 {
+        font-family: 'Times New Roman', Times, serif;
+      }
 
-  <header>
-    <h1>Australian Energy Consumption by Source</h1>
-    <p>Interactive line chart with legend multi-select and a year brush.</p>
-    <div class="sep sep--blue"></div>
-  </header>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
 
-  <main>
-    <section class="card">
-      <div id="linechart"></div>
-    </section>
-  </main>
+     <style></style>
+  </head>
+
+  <body>
+      <section class="card">
+        <div id="linechart"></div>
+      </section>
+  </body>
 
   <footer>
-    <p>Data: Our World in Data. Built with Vega-Lite.</p>
+      <p>Data: Our World in Data. Built with Vega-Lite.</p>
   </footer>
 
-  <script type="text/javascript">
-    var spec1 = "json./interactive_line_chart.json";
+    <script type="text/javascript">
+      var spec1 = "json./interactive_line_chart.json";
 
-    vegaEmbed("#linechart", spec1, { actions: false })
-      .then(function(result) {
-        console.log("Chart loaded successfully");
-      })
-      .catch(console.error);
-  </script>
-</body>
+      vegaEmbed("#linechart", spec1, { actions: false })
+        .then(function(result) {
+         console.log("Chart loaded successfully");
+        })
+        .catch(console.error);
+    </script>
+  </body>
 </html>
