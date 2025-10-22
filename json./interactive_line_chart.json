@@ -1,6 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "background": "#f9fafb",
+   "config": {
+    "font": "Roboto, Arial, sans-serif"},
   "vconcat": [
     {
       "width": 800,
