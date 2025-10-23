@@ -32,7 +32,7 @@
       "field": "ConsumptionNum",
       "type": "quantitative",
       "title": "Electricity Consumption (MWh)",
-      "scale": { "scheme": "greenblue" }
+      "scale": { "scheme": "reds" }
     },
     "tooltip": [
       { "field": "properties.name", "type": "nominal", "title": "State" },
