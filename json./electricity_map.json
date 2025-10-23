@@ -1,8 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#f9fafb",
   "description": "Electricity consumption by Australian state or territory.",
-  "width": 500,
-  "height": 300,
+  "width": 800,
+  "height": 380,
   "data": {
     "url": "https://raw.githubusercontent.com/ananya21233/FIT3179_Assignment_2/main/json./ne_10m(1).json",
     "format": { "type": "topojson", "feature": "ne_10m_admin_1_states_provinces" }
