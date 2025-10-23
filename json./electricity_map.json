@@ -1,0 +1,42 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Electricity consumption by Australian state or territory.",
+  "width": 500,
+  "height": 300,
+  "data": {
+    "url": "https://raw.githubusercontent.com/ananya21233/FIT3179_Assignment_2/main/json./ne_10m(1).json",
+    "format": { "type": "topojson", "feature": "ne_10m_admin_1_states_provinces" }
+  },
+  "transform": [
+    { "filter": "datum.properties.adm0_a3 == 'AUS'" },
+    {
+      "lookup": "properties.name",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/ananya21233/FIT3179_Assignment_2/main/data/Breakdown_of_consumption.csv"
+        },
+        "key": "State",
+        "fields": ["Consumption"]
+      }
+    },
+    {
+      "calculate": "toNumber(join(split(datum.Consumption, ','), ''))",
+      "as": "ConsumptionNum"
+    }
+  ],
+  "projection": { "type": "mercator" },
+  "mark": { "type": "geoshape", "stroke": "white", "strokeWidth": 0.5 },
+  "encoding": {
+    "color": {
+      "field": "ConsumptionNum",
+      "type": "quantitative",
+      "title": "Electricity Consumption (MWh)",
+      "scale": { "scheme": "blues" }
+    },
+    "tooltip": [
+      { "field": "properties.name", "type": "nominal", "title": "State" },
+      { "field": "ConsumptionNum", "type": "quantitative", "title": "Consumption", "format": ",.1f" }
+    ]
+  },
+  "config": { "view": { "stroke": null } }
+}
