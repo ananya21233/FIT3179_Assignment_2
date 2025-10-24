@@ -40,8 +40,8 @@
       "direction": "horizontal",
       "gradientLength": 320,         
       "gradientThickness": 10,
-      "labelFontSize": 18,
-      "titleFontSize": 20
+      "labelFontSize": 15,
+      "titleFontSize": 18
     }
     },
     "tooltip": [
