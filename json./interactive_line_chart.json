@@ -38,6 +38,7 @@
           "field": "Source",
           "type": "nominal",
           "title": "Sources of Energy",
+          "scale": { "scheme": "darkred" },
           "legend": { "symbolType": "circle", "symbolSize": 140, "titleFontSize": 14, "labelFontSize": 12 }
         },
         "opacity": {
