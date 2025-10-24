@@ -37,7 +37,7 @@
       "scale": { "scheme": "reds" },
       "legend": {
       "labelFontSize": 15,
-      "titleFontSize": 18
+      "titleFontSize": 17
     }
     },
     "tooltip": [
