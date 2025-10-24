@@ -12,6 +12,9 @@ head {
 
 p {
     font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+    line-height: 1.55;
+    color: #333;
 }
 
 h1 {
