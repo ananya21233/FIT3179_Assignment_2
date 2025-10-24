@@ -37,6 +37,10 @@ h2 {
     padding: 30px 40px;
 }
 
+.caption {
+    margin:10px 4px 0;color:var(--muted);font-size:.92rem
+}
+
 .page {
   margin: auto;
   padding: 50px;
