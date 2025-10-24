@@ -41,5 +41,8 @@
       { "field": "ConsumptionNum", "type": "quantitative", "title": "Consumption", "format": ",.1f" }
     ]
   },
-  "config": { "view": { "stroke": null } }
+  "config": { 
+    "font": "'Times New Roman', Times, serif",
+    "view": { "stroke": null } 
+  }
 }
