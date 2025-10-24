@@ -41,6 +41,14 @@ h2 {
     margin:10px 4px 0;color:var(--muted);font-size:.92rem
 }
 
+.pure-u-md-2-3 { 
+    min-width: 0; 
+}
+
+.vega-embed, .vega-embed > * { 
+    width: 100%; 
+}
+
 .page {
   margin: auto;
   padding: 50px;

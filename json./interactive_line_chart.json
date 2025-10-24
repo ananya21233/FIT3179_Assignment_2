@@ -5,11 +5,12 @@
   "padding": { "left": 8, "right": 8, "top": 6, "bottom": 6 },
   "config": {
     "font": "'Times New Roman', Times, serif",
-    "view": { "stroke": null } 
+    "view": { "stroke": null },
+    "legend": { "orient": "top", "direction": "horizontal" }
    },
   "vconcat": [
     {
-      "width": 400,
+      "width": "container",
       "height": 380,
       "data": {
         "url": "https://raw.githubusercontent.com/ananya21233/FIT3179_Assignment_2/main/data/energy_consumption_by_source.csv"
