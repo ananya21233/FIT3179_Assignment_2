@@ -10,6 +10,10 @@ head {
   padding: 40px 0 10px 0;
 }
 
+p {
+    font-family: 'Times New Roman', Times, serif;
+}
+
 h1 {
     font-family: 'Times New Roman', Times, serif;
     background-color:#f9fafb;
