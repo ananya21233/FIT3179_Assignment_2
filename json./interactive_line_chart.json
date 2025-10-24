@@ -4,7 +4,7 @@
   "autosize": { "type": "fit", "contains": "padding" },
   "padding": { "left": 8, "right": 8, "top": 6, "bottom": 6 },
    "config": {
-    "font": "Roboto, Arial, sans-serif"
+    "font": "'Times New Roman', Times, serif"
    },
   "vconcat": [
     {
