@@ -36,8 +36,6 @@
       "title": "Electricity Consumption (MWh)",
       "scale": { "scheme": "reds" },
       "legend": {
-      "gradientLength": 320,         
-      "gradientThickness": 10,
       "labelFontSize": 15,
       "titleFontSize": 18
     }
