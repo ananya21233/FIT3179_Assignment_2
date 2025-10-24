@@ -45,8 +45,10 @@ h2 {
     min-width: 0; 
 }
 
+.pure-u-md-3-4 { min-width: 0; }
+
 .vega-embed, .vega-embed > * { 
-    width: 100%; 
+    width: 100%; max-width: 100%; height: auto;
 }
 
 .page {
@@ -82,6 +84,7 @@ h2 {
     margin-bottom: 40px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     transition: all .3s ease;
+    overflow:hidden;
 }
 
 .card:hover {
