@@ -8,6 +8,7 @@
    },
   "vconcat": [
     {
+      "width": "container",
       "height": 380,
       "data": {
         "url": "https://raw.githubusercontent.com/ananya21233/FIT3179_Assignment_2/main/data/energy_consumption_by_source.csv"
