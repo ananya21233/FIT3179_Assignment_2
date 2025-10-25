@@ -85,6 +85,7 @@ h2 {
     background: #f9fafb;
     border-radius: 14px;
     padding: 16px 18px;
+    border: 1px solid gba(108, 103, 163, 0.08);
     margin-bottom: 40px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     transition: all .3s ease;
