@@ -43,6 +43,28 @@
         ]
       }
     },
+    {"data":{
+        "values": [
+          {"x": 75000, "y": 70000, "label": "VIC: close to balance"},
+          {"x": 20000, "y": 50000, "label": "NSW consumes more than it produces"}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Times New Roman",
+        "fontSize": 13,
+        "fontStyle": "italic",
+        "color": "#5a0000",
+        "align": "left",
+        "dx": 10,
+        "dy": -5
+      },
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative"},
+        "y": {"field": "y", "type": "quantitative"},
+        "text": {"field": "label"}
+      }
+    },
     {
       "data": {
         "values": [{"x": 0, "y": 0}, {"x": 100000, "y": 100000}]
