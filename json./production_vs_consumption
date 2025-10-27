@@ -1,0 +1,51 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Production vs total consumption by state, with x=y reference line.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/ananya21233/FIT3179_Assignment_2/main/data/Production_vs_consumption.csv"
+  },
+  "transform": [
+    {"filter": "datum.State !== 'AUS'"}
+  ],
+  "layer": [
+    {
+      "mark": {"type":"point", "filled": true, "size": 200,},
+      "encoding": {
+        "x": {
+          "field": "Production",
+          "type": "quantitative",
+          "title": "Electricity Production (GWh)",
+        },
+        "y": {
+          "field": "Consumption_total",
+          "type": "quantitative",
+          "title": "Total Consumption (GWh)",
+        },
+        "color": {"field": "State", "type": "nominal"},
+        "tooltip": [
+          {"field": "State"},
+          {"field": "Production", "title": "Production (GWh)", "format": ",.1f"},
+          {"field": "Consumption_total", "title": "Consumption (GWh)", "format": ",.1f"}
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [{"x": 0, "y": 0}, {"x": 100000, "y": 100000}]
+      },
+      "mark": {
+        "type": "line",
+        "color": "black",
+        "strokeDash": [5, 5],
+        "opacity": 0.3
+      },
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative"},
+        "y": {"field": "y", "type": "quantitative"}
+      }
+    }
+  ],
+  "config": {
+    "font": "Times New Roman",
+    "axis": {"labelFontSize": 12, "titleFontSize": 14}
+} }
