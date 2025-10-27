@@ -58,7 +58,7 @@
       }
     },
     {
-      "width": 800,
+      "width": "container",
       "height": 70,
       "title": "Year Range Filter",
       "data": {
