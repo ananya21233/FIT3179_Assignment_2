@@ -45,7 +45,7 @@
     },
     {"data":{
         "values": [
-          {"x": 75000, "y": 70000, "label": "VIC: close to balance"},
+          {"x": 15000, "y": 70000, "label": "Victoria is closed to balances, however it consumes approxiately 4400GWh then it produces"},
           {"x": 20000, "y": 50000, "label": "NSW consumes more than it produces"}
         ]
       },
@@ -53,9 +53,9 @@
         "type": "text",
         "font": "Times New Roman",
         "fontSize": 13,
-        "fontStyle": "italic",
-        "color": "#5a0000",
-        "align": "left",
+        "fontStyle": "bold",
+        "color": "#000000",
+        "align": "center",
         "dx": 10,
         "dy": -5
       },
