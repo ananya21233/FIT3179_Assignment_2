@@ -25,7 +25,17 @@
           "type": "quantitative",
           "title": "Total Consumption (GWh)"
         },
-        "color": {"field": "State", "type": "nominal"},
+        "color": {"field": "State", "type": "nominal",
+          "legend": {
+            "title": "State",
+            "orient": "right",
+            "labelFontSize": 14,
+            "symbolSize": 200,
+            "symbolStrokeWidth": 2,
+            "titleFontSize": 16,
+            "titleFont": "Times New Roman",
+            "labelFont": "Times New Roman"
+         }},
         "tooltip": [
           {"field": "State"},
           {"field": "Production", "title": "Production (GWh)", "format": ",.1f"},
