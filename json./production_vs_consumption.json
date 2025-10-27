@@ -45,9 +45,12 @@
     },
     {"data":{
         "values": [
-          {"x": 15000, "y": 70000, "label": "Victoria is closed to balances, however it consumes \napproxiately 4400GWh\n then it produces"},
-          {"x": 80000, "y": 60000, "label": "NSW is also close to balancing, however \nit produces more than\n it consumes"}
-        ]
+      { "x": 45500, "y": 54000, "text": "VIC: near balance" },
+      { "x": 45500, "y": 52500, "text": "Consumes ~4,400 GWh more" },
+
+      { "x": 76000, "y": 63000, "text": "NSW: slight surplus" },
+      { "x": 76000, "y": 61500, "text": "Produces > consumes" }
+    ]
       },
       "mark": {
         "type": "text",
