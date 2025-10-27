@@ -16,6 +16,8 @@ p {
     font-weight: bold ;
     line-height: 1.55;
     color: #333;
+    max-width: 1400px;
+    padding: 40px;
 }
 
 h1 {
