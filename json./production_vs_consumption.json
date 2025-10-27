@@ -45,11 +45,11 @@
     },
     {"data":{
         "values": [
-      { "x": 45500, "y": 54000, "label": "VIC: near balance" },
-      { "x": 45500, "y": 52500, "label": "Consumes ~4,400 GWh more" },
+      { "x": 34500, "y": 70000, "label": "VIC: near balance" },
+      { "x": 34500, "y": 65000, "label": "Consumes ~4,400 GWh more" },
 
-      { "x": 76000, "y": 63000, "text": "NSW: slight surplus" },
-      { "x": 76000, "y": 61500, "text": "Produces > consumes" }
+      { "x": 80000, "y": 63000, "label": "NSW: slight surplus" },
+      { "x": 80000, "y": 58000, "label": "Produces > consumes" }
     ]
       },
       "mark": {
@@ -58,9 +58,7 @@
         "fontSize": 13,
         "fontStyle": "bold",
         "color": "#000000",
-        "align": "center",
-        "dx": 10,
-        "dy": -10
+        "align": "center"
       },
       "encoding": {
         "x": {"field": "x", "type": "quantitative"},

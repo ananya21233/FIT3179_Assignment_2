@@ -47,6 +47,12 @@ h2 {
 
 .pure-u-md-3-4 { min-width: 0; }
 
+.vega-embed, .vega-embed > * { 
+    width: 100%; 
+    max-width: 100%; 
+    height: auto;
+}
+
 .page {
   margin: auto;
   padding: 50px;
