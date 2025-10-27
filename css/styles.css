@@ -100,6 +100,46 @@ h2 {
     width: 100%;
 }
 
+.stats-strip {
+    margin: 20px auto 30px;
+    text-align: center;
+}
+
+.stat-card {
+    background: #f9fafb;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    padding: 20px 18px;
+    height: 100%;
+    margin: 10px;
+    border: 6px solid #7b1e1e;
+    transition: transform 0.2s ease;
+}
+
+.stat-pill {
+    display: inline-block;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #f3e6e6;
+    color: #7b1e1e;
+    font-weight: bold;
+}
+
+.stat-value {
+  font-size: 22px;
+  color: #2b2b2b;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.stat-note {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.4;
+  margin-top: 4px;
+  font-family: "Times New Roman", Times, serif;
+}
 
 /* Footer */
 footer{
