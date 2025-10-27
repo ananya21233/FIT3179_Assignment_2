@@ -45,8 +45,8 @@
     },
     {"data":{
         "values": [
-      { "x": 45500, "y": 54000, "text": "VIC: near balance" },
-      { "x": 45500, "y": 52500, "text": "Consumes ~4,400 GWh more" },
+      { "x": 45500, "y": 54000, "label": "VIC: near balance" },
+      { "x": 45500, "y": 52500, "label": "Consumes ~4,400 GWh more" },
 
       { "x": 76000, "y": 63000, "text": "NSW: slight surplus" },
       { "x": 76000, "y": 61500, "text": "Produces > consumes" }
