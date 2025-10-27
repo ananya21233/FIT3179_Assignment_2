@@ -16,8 +16,6 @@ p {
     font-weight: bold ;
     line-height: 1.55;
     color: #333;
-    max-width: 1400px;
-    padding: 40px;
 }
 
 h1 {
@@ -57,9 +55,9 @@ h2 {
 
 .page {
   margin: auto;
-  padding: 50px;
+  padding: 40px;
   padding-top: 35px;
-  max-width: 1250px;
+  max-width: 1400px;
 }
 
 .pure-g {
