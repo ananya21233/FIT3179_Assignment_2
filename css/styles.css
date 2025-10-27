@@ -101,20 +101,30 @@ h2 {
 }
 
 .stats-strip {
-    margin: 20px auto 30px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
     text-align: center;
 }
 
 .stat-card {
     background: #f9fafb;
-    border-radius: 18px;
+    border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    padding: 20px 18px;
+    padding: 20px;
     height: 100%;
     margin: 10px;
-    border: 6px solid #7b1e1e;
+    border: 3px solid #7b1e1e;
     transition: transform 0.2s ease;
+    box-sizing: border-box;  
 }
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
 
 .stat-pill {
     display: inline-block;
