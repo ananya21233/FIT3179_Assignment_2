@@ -55,7 +55,7 @@
         "fontSize": 13,
         "fontStyle": "bold",
         "color": "#000000",
-        "align": "center",
+        "align": "left",
         "dx": 10,
         "dy": -5
       },
