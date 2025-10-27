@@ -9,17 +9,17 @@
   ],
   "layer": [
     {
-      "mark": {"type":"point", "filled": true, "size": 200,},
+      "mark": {"type":"point", "filled": true, "size": 200},
       "encoding": {
         "x": {
           "field": "Production",
           "type": "quantitative",
-          "title": "Electricity Production (GWh)",
+          "title": "Electricity Production (GWh)"
         },
         "y": {
           "field": "Consumption_total",
           "type": "quantitative",
-          "title": "Total Consumption (GWh)",
+          "title": "Total Consumption (GWh)"
         },
         "color": {"field": "State", "type": "nominal"},
         "tooltip": [
