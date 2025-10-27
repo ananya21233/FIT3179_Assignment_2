@@ -45,8 +45,8 @@
     },
     {"data":{
         "values": [
-          {"x": 15000, "y": 70000, "label": "Victoria is closed to balances, however it consumes\n approxiately 4400GWh then it produces"},
-          {"x": 80000, "y": 60000, "label": "NSW is also close to balancing, however\n it produces more than it consumes"}
+          {"x": 15000, "y": 70000, "label": "Victoria is closed to balances, however it consumes \napproxiately 4400GWh then it produces"},
+          {"x": 80000, "y": 60000, "label": "NSW is also close to balancing, however \nit produces more than it consumes"}
         ]
       },
       "mark": {
@@ -57,7 +57,7 @@
         "color": "#000000",
         "align": "center",
         "dx": 10,
-        "dy": -5
+        "dy": -10
       },
       "encoding": {
         "x": {"field": "x", "type": "quantitative"},
