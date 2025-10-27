@@ -1,6 +1,10 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "description": "Production vs total consumption by state, with x=y reference line.",
+  "background": "#f9fafb",
+  "autosize": { "type": "fit", "contains": "padding" },
+  "width": "container",
+  "height": 380,
   "data": {
     "url": "https://raw.githubusercontent.com/ananya21233/FIT3179_Assignment_2/main/data/Production_vs_consumption.csv"
   },
