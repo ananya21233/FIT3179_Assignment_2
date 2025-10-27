@@ -41,19 +41,11 @@ h2 {
     padding: 30px 40px;
 }
 
-.caption {
-    margin:10px 4px 0;color:var(--muted);font-size:.92rem
-}
-
 .pure-u-md-2-3 { 
     min-width: 0; 
 }
 
 .pure-u-md-3-4 { min-width: 0; }
-
-.vega-embed, .vega-embed > * { 
-    width: 100%; max-width: 100%; height: auto;
-}
 
 .page {
   margin: auto;
