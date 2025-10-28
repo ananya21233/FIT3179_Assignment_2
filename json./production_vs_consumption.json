@@ -26,6 +26,7 @@
           "title": "Total Consumption (GWh)"
         },
         "color": {"field": "State", "type": "nominal",
+        "scale": { "scheme": "darkred" },
           "legend": {
             "title": "State",
             "orient": "right",
