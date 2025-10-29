@@ -1,16 +1,24 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Energy mix — AUS",
+  "title": {"text": {"expr": "'Energy mix — ' + StateSel"}},
   "data": {
     "url": "https://raw.githubusercontent.com/ananya21233/FIT3179_Assignment_2/main/data/Australia_state_percentage.csv",
-    "format": {
-      "type": "csv",
-      "parse": {"Oil": "number", "Coal": "number", "Gas": "number", "Renewables": "number"}
-    }
+    "format": {"type": "csv", "parse": {"Oil":"number","Coal":"number","Gas":"number","Renewables":"number"}}
   },
+  "params": [
+    {
+      "name": "StateSel",
+      "value": "AUS",
+      "bind": {
+        "input": "select",
+        "options": ["AUS","NSW","VIC","QLD","WA","SA","TAS","NT"],
+        "name": "State: "
+      }
+    }
+  ],
   "transform": [
-    {"filter": "datum.State === 'AUS'"},
-    {"fold": ["Oil", "Coal", "Gas", "Renewables"], "as": ["Energy", "Percent"]}
+    {"filter": "datum.State === StateSel"},
+    {"fold": ["Oil","Coal","Gas","Renewables"], "as": ["Energy","Percent"]}
   ],
   "mark": {"type": "arc", "innerRadius": 80, "stroke": "#fff"},
   "encoding": {
