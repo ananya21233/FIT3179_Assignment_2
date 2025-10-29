@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "padding": { "top": 24, "right": 10, "bottom": 10, "left": 10 },
+  "padding": { "top": 24, "right": 20, "bottom": 10, "left": 10 },
   "background": "#f9fafb",
   "title": {"text": {"expr": "'Energy mix — ' + StateSel"}},
   "data": {
