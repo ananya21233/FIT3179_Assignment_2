@@ -24,7 +24,17 @@
   "mark": {"type": "arc", "innerRadius": 80, "stroke": "#fff"},
   "encoding": {
     "theta": {"field": "Percent", "type": "quantitative"},
-    "color": {"field": "Energy", "type": "nominal", "scale": {"scheme": "reds"}},
+    "color": {"field": "Energy", "type": "nominal", "scale": {"scheme": "reds"}, 
+        "legend": {
+                "title": "State",
+                "orient": "right",
+                "labelFontSize": 14,
+                "symbolSize": 200,
+                "symbolStrokeWidth": 2,
+                "titleFontSize": 16,
+                "titleFont": "Times New Roman",
+                "labelFont": "Times New Roman"}},
+
     "tooltip": [
       {"field": "Energy", "title": "Source"},
       {"field": "Percent", "title": "Share (%)", "format": ".1f"}
@@ -34,5 +44,5 @@
     "height": 300,
     "view": {"stroke": null},
     "config": { 
-    "font": "'Times New Roman', Times, serif" }
-}
+    "font": "'Times New Roman', Times, serif" } }
+
