@@ -9,7 +9,8 @@
     "url": "https://raw.githubusercontent.com/ananya21233/FIT3179_Assignment_2/main/data/Production_vs_consumption.csv"
   },
   "transform": [
-    {"filter": "datum.State !== 'AUS'"}
+    {"filter": "datum.State !== 'AUS'"},
+    {"filter": "datum.Production > 0 && datum.Consumption_total > 0"}
   ],
   "layer": [
     {
