@@ -1,68 +1,89 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "description": "Production vs total consumption by state, with x=y reference line.",
   "background": "#f9fafb",
-  "autosize": {"type": "fit", "contains": "padding"},
+  "autosize": { "type": "fit", "contains": "padding" },
   "width": "container",
   "height": 380,
-
   "data": {
-    "url": "https://raw.githubusercontent.com/ananya21233/FIT3179_Assignment_2/main/data/Production_vs_consumption.csv",
-    "format": {"type": "csv"}
+    "url": "https://raw.githubusercontent.com/ananya21233/FIT3179_Assignment_2/main/data/Production_vs_consumption.csv"
   },
-
   "transform": [
-    {"filter": "datum.State && datum.State !== 'AUS'"},
-    {"calculate": "toNumber(replace(datum.Production, ',', ''))", "as": "Prod"},
-    {"calculate": "toNumber(replace(datum.Consumption_total, ',', ''))", "as": "Cons"},
-    {"filter": "isFinite(datum.Prod) && isFinite(datum.Cons) && datum.Prod > 0 && datum.Cons > 0"}
+    {"filter": "datum.State !== 'AUS'"}
   ],
-
   "layer": [
     {
-      "mark": {"type": "point", "filled": true, "size": 200},
+      "mark": {"type":"point", "filled": true, "size": 200},
       "encoding": {
-        "x": {"field": "Prod", "type": "quantitative", "title": "Electricity Production (GWh)"},
-        "y": {"field": "Cons", "type": "quantitative", "title": "Total Consumption (GWh)"},
-        "color": {
-          "field": "State", "type": "nominal",
-          "scale": {"scheme": "reds"},
-          "legend": {
-            "title": "State", "orient": "right",
-            "labelFontSize": 14, "symbolSize": 200, "symbolStrokeWidth": 2,
-            "titleFontSize": 16, "titleFont": "Times New Roman", "labelFont": "Times New Roman"
-          }
+        "x": {
+          "field": "Production",
+          "type": "quantitative",
+          "title": "Electricity Production (GWh)"
         },
+        "y": {
+          "field": "Consumption_total",
+          "type": "quantitative",
+          "title": "Total Consumption (GWh)"
+        },
+        "color": {"field": "State", "type": "nominal",
+        "scale": { "scheme": "darkred" },
+          "legend": {
+            "title": "State",
+            "orient": "right",
+            "labelFontSize": 14,
+            "symbolSize": 200,
+            "symbolStrokeWidth": 2,
+            "titleFontSize": 16,
+            "titleFont": "Times New Roman",
+            "labelFont": "Times New Roman"
+         }},
         "tooltip": [
           {"field": "State"},
-          {"field": "Prod", "title": "Production (GWh)", "format": ",.1f"},
-          {"field": "Cons", "title": "Consumption (GWh)", "format": ",.1f"}
+          {"field": "Production", "title": "Production (GWh)", "format": ",.1f"},
+          {"field": "Consumption_total", "title": "Consumption (GWh)", "format": ",.1f"}
         ]
       }
     },
+    {"data":{
+        "values": [
+      { "x": 34500, "y": 70000, "label": "VIC: near balance" },
+      { "x": 34500, "y": 65000, "label": "Consumes ~4,400 GWh more" },
 
+      { "x": 80000, "y": 63000, "label": "NSW: slight surplus" },
+      { "x": 80000, "y": 58000, "label": "Produces > consumes" }
+    ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Times New Roman",
+        "fontSize": 13,
+        "fontStyle": "bold",
+        "color": "#000000",
+        "align": "center"
+      },
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative"},
+        "y": {"field": "y", "type": "quantitative"},
+        "text": {"field": "label"}
+      }
+    },
     {
       "data": {
-        "values": [
-          {"x": 34500, "y": 70000, "label": "VIC: near balance"},
-          {"x": 34500, "y": 65000, "label": "Consumes ~4,400 GWh more"},
-          {"x": 80000, "y": 63000, "label": "NSW: slight surplus"},
-          {"x": 80000, "y": 58000, "label": "Produces > consumes"}
-        ]
+        "values": [{"x": 0, "y": 0}, {"x": 100000, "y": 100000}]
       },
-      "mark": {"type": "text", "font": "Times New Roman", "fontSize": 13, "fontStyle": "bold", "color": "#000000", "align": "center"},
-      "encoding": {"x": {"field": "x"}, "y": {"field": "y"}, "text": {"field": "label"}}
-    },
-
-    {
-      "data": {"values": [{"x": 0, "y": 0}, {"x": 100000, "y": 100000}]},
-      "mark": {"type": "line", "color": "black", "strokeDash": [5, 5], "opacity": 0.3},
-      "encoding": {"x": {"field": "x"}, "y": {"field": "y"}}
+      "mark": {
+        "type": "line",
+        "color": "black",
+        "strokeDash": [5, 5],
+        "opacity": 0.3
+      },
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative"},
+        "y": {"field": "y", "type": "quantitative"}
+      }
     }
   ],
-
   "config": {
     "font": "Times New Roman",
     "axis": {"labelFontSize": 12, "titleFontSize": 14}
-  }
-}
+} }
