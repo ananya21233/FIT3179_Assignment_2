@@ -19,7 +19,7 @@
                     "key": "Entity", "fields": ["Value","Entity"] } },
         { "calculate": "toNumber(datum.Value)", "as": "Metric" }
       ],
-      "projection": { "type": "naturalEarth1", "scale": 240, "translate": [360, 220]},
+      "projection": { "type": "naturalEarth1", "scale": 180, "translate": [360, 220]},
       "mark": { "type": "geoshape", "stroke": "#ffffff", "strokeWidth": 0.3 },
       "width": 800,        
       "height": 420,       
