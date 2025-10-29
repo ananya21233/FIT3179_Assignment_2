@@ -20,7 +20,7 @@
       ],
       "projection": { "type": "equalEarth" },
       "mark": { "type": "geoshape", "stroke": "#ffffff", "strokeWidth": 0.3 },
-      "width": 700,        
+      "width": 800,        
       "height": 420,       
       "encoding": {
         "color": {
@@ -43,7 +43,7 @@
         { "filter": "datum.rank <= 30" }
       ],
       "mark": { "type": "bar", "cornerRadiusEnd": 6 },
-      "width": 480,        
+      "width": 380,        
       "height": { "step": 18 },  
       "encoding": {
         "y": { "field": "Entity", "type": "nominal", "sort": "-x", "title": null },
