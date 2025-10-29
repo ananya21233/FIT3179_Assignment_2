@@ -30,7 +30,9 @@
       {"field": "Percent", "title": "Share (%)", "format": ".1f"}
     ]
   },
-  "width": 380,
-  "height": 300,
-  "view": {"stroke": null}
+    "width": "container",
+    "height": 300,
+    "view": {"stroke": null},
+    "config": { 
+    "font": "'Times New Roman', Times, serif" }
 }
