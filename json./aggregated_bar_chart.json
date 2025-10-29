@@ -27,7 +27,10 @@
         "color": {
           "field": "Metric", "type": "quantitative",
           "bin": { "maxbins": 5 }, "scale": { "scheme": "reds" },
-          "legend": { "title": "kWh/person (binned)" }
+          "legend": { "title": "kWh/person (binned)", "gradientLength": 320, 
+      "gradientThickness": 12,
+      "labelFontSize": 14,
+      "titleFontSize": 16 }
         },
         "tooltip": [
           { "field": "name", "title": "Country" },
