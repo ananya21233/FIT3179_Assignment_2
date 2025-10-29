@@ -3,7 +3,7 @@
   "title": "Energy mix by source (select a state)",
 
   "data": {
-    "url": "https://raw.githubusercontent.com/ananya21233/FIT3179_Assignment_2/main/data/Australia_by_states.csv",
+    "url": "https://raw.githubusercontent.com/ananya21233/FIT3179_Assignment_2/main/data/Australia_state_percentage.csv",
     "format": { "type": "csv" }
   },
 
