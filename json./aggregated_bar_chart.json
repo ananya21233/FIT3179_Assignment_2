@@ -1,71 +1,40 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "description": "Top 30 countries by per-capita energy use (kWh/person), binned into 5 groups. Click legend to highlight a bin. Bars have rounded ends, with end dots and value labels.",
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Top 30 countries by per-capita energy (kWh/person) with clickable legend highlight.",
+  "title": "Per-Capita Energy Use — Top 30",
   "data": {
     "url": "https://raw.githubusercontent.com/ananya21233/FIT3179_Assignment_2/main/data/global_2.csv"
   },
   "transform": [
     { "calculate": "toNumber(datum.Value)", "as": "Metric" },
-    { "window": [{ "op": "rank", "as": "rank" }], "sort": [{ "field": "Metric", "order": "descending" }] },
-    { "filter": "datum.rank <= 30" },
-    { "bin": { "maxbins": 5 }, "field": "Metric", "as": ["MetricBin_start", "MetricBin_end"] },
-    {
-      "calculate": "format(datum.MetricBin_start, ',.0f') + ' – ' + format(datum.MetricBin_end, ',.0f')",
-      "as": "BinLabel"
-    }
+    { "window": [{"op": "rank", "as": "rank"}], "sort": [{"field": "Metric", "order": "descending"}] },
+    { "filter": "datum.rank <= 30" }
   ],
   "params": [
-    { "name": "binSel", "select": { "type": "point", "fields": ["BinLabel"] }, "bind": "legend" }
-  ],
-  "encoding": {
-    "color": {
-      "field": "BinLabel",
-      "type": "nominal",
-      "scale": { "scheme": "reds" },
-      "legend": { "title": "kWh/person (binned)" },
-      "sort": { "op": "min", "field": "MetricBin_start", "order": "ascending" }
+    {
+      "name": "legendSel",
+      "select": { "type": "point", "encodings": ["color"] },
+      "bind": "legend"
     }
-  },
+  ],
+  "mark": { "type": "bar", "cornerRadiusEnd": 6 },
   "width": 900,
-  "height": { "step": 20 },
-  "layer": [
-    {
-      "mark": { "type": "bar", "cornerRadiusEnd": 6, "stroke": "#ffffff", "strokeWidth": 0.5 },
-      "encoding": {
-        "y": { "field": "Entity", "type": "nominal", "sort": "-x", "title": null },
-        "x": { "field": "Metric", "type": "quantitative", "title": "Per-capita energy (kWh/person)", "axis": { "format": ",.0f" } },
-        "opacity": { "condition": { "param": "binSel", "value": 1 }, "value": 0.25 },
-        "tooltip": [
-          { "field": "Entity", "title": "Country" },
-          { "field": "Metric", "title": "Per-capita (kWh/person)", "format": ",.0f" },
-          { "field": "BinLabel", "title": "Group" }
-        ]
-      }
+  "height": { "step": 24 },
+  "encoding": {
+    "y": { "field": "Entity", "type": "nominal", "sort": "-x", "title": null },
+    "x": { "field": "Metric", "type": "quantitative", "title": "kWh per person", "axis": { "format": ",.0f" } },
+    "color": {
+      "field": "Metric",
+      "type": "quantitative",
+      "bin": { "maxbins": 5 },
+      "scale": { "scheme": "reds" },
+      "legend": { "title": "kWh/person (binned)" }
     },
-    {
-      "mark": { "type": "point", "shape": "circle", "filled": true, "size": 48 },
-      "encoding": {
-        "y": { "field": "Entity", "type": "nominal", "sort": "-x" },
-        "x": { "field": "Metric", "type": "quantitative" },
-        "opacity": { "condition": { "param": "binSel", "value": 1 }, "value": 0.9 }
-      }
-    },
-    {
-      "mark": { "type": "text", "dx": 6, "align": "left", "baseline": "middle", "fontSize": 11 },
-      "encoding": {
-        "y": { "field": "Entity", "type": "nominal", "sort": "-x" },
-        "x": { "field": "Metric", "type": "quantitative" },
-        "text": { "field": "Metric", "format": ",.0f" },
-        "color": { "value": "#3b0a0a" },
-        "opacity": { "condition": { "param": "binSel", "value": 1 }, "value": 0.85 }
-      }
-    }
-  ],
-  "config": {
-    "font": "Times New Roman",
-    "axis": { "grid": false, "labelFontSize": 12, "titleFontSize": 13, "labelColor": "#4b1c1c", "titleColor": "#4b1c1c" },
-    "legend": { "titleFontSize": 12, "labelFontSize": 12 },
-    "view": { "stroke": null },
-    "background": "#f9fafb"
-  }
+    "opacity": { "condition": { "param": "legendSel", "value": 1 }, "value": 0.25 },
+    "tooltip": [
+      { "field": "Entity", "title": "Country" },
+      { "field": "Metric", "title": "Per-capita (kWh/person)", "format": ",.0f" }
+    ]
+  },
+  "config": { "view": { "stroke": null }, "background": "#f9fafb" }
 }
