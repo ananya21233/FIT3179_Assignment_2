@@ -61,5 +61,6 @@
     }
   ],
   "resolve": { "scale": { "color": "shared" } },
-  "config": { "view": { "stroke": null }, "background": "#f9fafb" }
+  "config": { "view": { "stroke": null }, "background": "#f9fafb",
+    "font": "'Times New Roman', Times, serif" }
 }
