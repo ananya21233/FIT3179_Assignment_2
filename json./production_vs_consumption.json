@@ -1,5 +1,5 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Production vs total consumption by state, with x=y reference line.",
   "background": "#f9fafb",
   "autosize": { "type": "fit", "contains": "padding" },
@@ -8,8 +8,10 @@
   "data": {
     "url": "https://raw.githubusercontent.com/ananya21233/FIT3179_Assignment_2/main/data/Production_vs_consumption.csv"
   },
-  "transform": [
-    {"filter": "datum.State !== 'AUS'"}
+ "transform": [
+    {"filter": "datum.State && datum.State !== 'AUS'"},
+    {"filter": "isFinite(datum.Production) && isFinite(datum.Consumption_total)"},
+    {"filter": "datum.Production > 0 && datum.Consumption_total > 0"}
   ],
   "layer": [
     {
