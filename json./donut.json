@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "description": "Select a state to see its energy mix as a donut chart.",
   "title": "Energy mix by source (select a state)",
+
   "data": {
     "url": "https://raw.githubusercontent.com/ananya21233/FIT3179_Assignment_2/main/data/Australia_by_states.csv",
     "format": { "type": "csv" }
@@ -20,35 +20,40 @@
   ],
 
   "transform": [
-    {
-      "calculate": "replace(((datum.State || datum['Unnamed: 0'] || datum['State/Territory'] || datum.state || datum['']) + ''), /^\\s+|\\s+$/g, '')",
-      "as": "StateName"
-    },
-    { "filter": "datum.StateName === stateSel" },
+    { "filter": "datum.State === stateSel" },
     { "fold": ["Oil", "Coal", "Gas", "Renewables"], "as": ["Energy", "PercentRaw"] },
     { "calculate": "toNumber(datum.PercentRaw)", "as": "Percent" }
   ],
 
-  "mark": { "type": "arc", "innerRadius": 80, "stroke": "#ffffff", "strokeWidth": 1 },
-
-  "encoding": {
-    "theta": { "field": "Percent", "type": "quantitative" },
-    "color": {
-      "field": "Energy",
-      "type": "nominal",
-      "scale": { "scheme": "tableau10" },
-      "legend": { "title": "Source" }
+  "layer": [
+    {
+      "mark": { "type": "arc", "innerRadius": 80, "stroke": "#ffffff", "strokeWidth": 1 },
+      "encoding": {
+        "theta": { "field": "Percent", "type": "quantitative" },
+        "color": {
+          "field": "Energy",
+          "type": "nominal",
+          "scale": { "scheme": "tableau10" },
+          "legend": { "title": "Source" }
+        },
+        "tooltip": [
+          { "field": "State", "title": "State" },
+          { "field": "Energy", "title": "Source" },
+          { "field": "Percent", "title": "Share (%)", "format": ".1f" }
+        ]
+      }
     },
-    "tooltip": [
-      { "field": "StateName", "title": "State" },
-      { "field": "Energy", "title": "Source" },
-      { "field": "Percent", "title": "Share (%)", "format": ".1f" }
-    ]
-  },
+    {
+      "transform": [
+        { "aggregate": [{ "op": "max", "field": "State", "as": "StateOne" }] }
+      ],
+      "mark": { "type": "text", "radius": 0, "align": "center", "baseline": "middle", "fontSize": 16 },
+      "encoding": { "text": { "field": "StateOne" } }
+    }
+  ],
 
   "width": 420,
   "height": 360,
   "view": { "stroke": null },
-  "background": "#f9fafb",
-  "config": { "axis": { "labelFontSize": 12, "titleFontSize": 12 } }
+  "background": "#f9fafb"
 }
