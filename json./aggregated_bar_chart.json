@@ -1,0 +1,110 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Top 30 countries by per-capita energy use (kWh/person), colored by 5 binned groups with a clickable legend. Bars have rounded ends, end dots, and value labels.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/ananya21233/FIT3179_Assignment_2/main/data/global_2.csv"
+  },
+
+  "transform": [
+    { "calculate": "toNumber(datum.Value)", "as": "Metric" },
+    { "window": [{ "op": "rank", "as": "rank" }], "sort": [{ "field": "Metric", "order": "descending" }] },
+    { "filter": "datum.rank <= 30" },
+    { "bin": { "maxbins": 5 }, "field": "Metric", "as": ["MetricBin_start", "MetricBin_end"] },
+    {
+      "calculate": "format(datum.MetricBin_start, ',.0f') + ' – ' + format(datum.MetricBin_end, ',.0f')",
+      "as": "BinLabel"
+    }
+  ],
+
+  "params": [
+    { "name": "binSel", "select": { "type": "point", "fields": ["BinLabel"] }, "bind": "legend" }
+  ],
+
+  "width": 900,
+  "height": { "step": 20 },
+
+  "layer": [
+    {
+      "mark": { "type": "bar", "cornerRadiusEnd": 6, "stroke": "#ffffff", "strokeWidth": 0.5 },
+      "encoding": {
+        "y": {
+          "field": "Entity",
+          "type": "nominal",
+          "sort": { "field": "Metric", "order": "descending" },
+          "title": null
+        },
+        "x": {
+          "field": "Metric",
+          "type": "quantitative",
+          "title": "Per-capita energy (kWh/person)",
+          "axis": { "format": ",.0f" }
+        },
+        "color": {
+          "field": "BinLabel",
+          "type": "nominal",
+          "scale": { "scheme": "reds" },
+          "sort": { "field": "MetricBin_start", "order": "ascending" },
+          "legend": { "title": "kWh/person (binned)" }
+        },
+        "opacity": {
+          "condition": { "param": "binSel", "value": 1 },
+          "value": 0.25
+        },
+        "tooltip": [
+          { "field": "Entity", "title": "Country" },
+          { "field": "Metric", "title": "Per-capita (kWh/person)", "format": ",.0f" },
+          { "field": "BinLabel", "title": "Group" }
+        ]
+      }
+    },
+
+    {
+      "mark": { "type": "point", "shape": "circle", "filled": true, "size": 48 },
+      "encoding": {
+        "y": { "field": "Entity", "type": "nominal" },
+        "x": { "field": "Metric", "type": "quantitative" },
+        "color": {
+          "field": "BinLabel",
+          "type": "nominal",
+          "scale": { "scheme": "reds" },
+          "legend": null
+        },
+        "opacity": {
+          "condition": { "param": "binSel", "value": 1 },
+          "value": 0.9
+        }
+      }
+    },
+
+    {
+      "mark": { "type": "text", "dx": 6, "align": "left", "baseline": "middle", "fontSize": 11 },
+      "encoding": {
+        "y": { "field": "Entity", "type": "nominal" },
+        "x": { "field": "Metric", "type": "quantitative" },
+        "text": { "field": "Metric", "format": ",.0f" },
+        "color": { "value": "#3b0a0a" },
+        "opacity": {
+          "condition": { "param": "binSel", "value": 1 },
+          "value": 0.85
+        }
+      }
+    }
+  ],
+
+  "config": {
+    "font": "Times New Roman",
+    "axis": {
+      "grid": false,
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "labelColor": "#4b1c1c",
+      "titleColor": "#4b1c1c"
+    },
+    "legend": {
+      "titleFontSize": 12,
+      "labelFontSize": 12
+    },
+    "view": { "stroke": null },
+    "background": "#f9fafb"
+  }
+}
