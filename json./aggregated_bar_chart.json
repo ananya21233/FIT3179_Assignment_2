@@ -1,6 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "World map (wider) + Top-30 bars with shared binned colour scale.",
+  "padding": { "top": 24, "right": 10, "bottom": 10, "left": 10 },
   "spacing": 24,
   "hconcat": [
     {
